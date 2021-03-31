@@ -1,0 +1,11 @@
+.checkoutPage {
+  padding: 100px 0;
+}
+
+.button a {
+  color: #fff;
+}
+.button a:hover {
+  text-decoration: none;
+  color: #fff;
+}

@@ -8,6 +8,9 @@ import AddProduct from './components/AddProduct/AddProduct';
 import PrivateRoute from './components/PriavteRoute/PrivateRoute';
 import Login from './components/Login/Login';
 import CheckOut from './components/CheckOut/CheckOut';
+import ManageProduct from './components/MangeProduct/ManageProduct';
+import Orders from './components/Orders/Orders';
+import NotFound from './components/NotFound/NotFound';
 export const UserContext = createContext();
 function App() {
   const [LoggedInUser, setLoggedInUser] = useState({});
@@ -19,18 +22,26 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">{/* <About /> */}</Route>
-          <PrivateRoute path="/admin">
+          <Route path="/admin">
             <Admin />
-          </PrivateRoute>
-          <PrivateRoute path="/addProduct">
+          </Route>
+          <Route path="/addProduct">
             <AddProduct />
+          </Route>
+          <PrivateRoute path="/orders">
+            <Orders />
           </PrivateRoute>
-          <PrivateRoute path="/checkout">
+          <Route path="/manageProduct">
+            <ManageProduct />
+          </Route>
+          <PrivateRoute path="/checkout/:id">
             <CheckOut />
           </PrivateRoute>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </Router>

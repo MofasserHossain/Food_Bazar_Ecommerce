@@ -14,25 +14,20 @@ const AddProduct = () => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     const productData = {
-      ...loggedInUser,
       name: data.name,
+      price: data.price,
+      weight: data.weight,
       imageUrl: imageUrl,
     };
     console.log(productData);
     const url = `http://localhost:5000/addProduct`;
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(productData),
-    })
+    axios
+      .post(url, productData)
       .then((res) => {
         console.log('response', res);
-        //   res && history.push('/orders');
       })
-      .then((data) => {
-        console.log('result ', data);
+      .catch((error) => {
+        console.log(error);
       });
   };
   const error = {
@@ -62,26 +57,43 @@ const AddProduct = () => {
         <Link to={'/addProduct'}>Add Product</Link>
         <Link to={'/editProduct'}>Edit Product</Link>
       </div>
-      <div class="content">
-        <form onSubmit={handleSubmit(onSubmit)} className="from">
-          <label htmlFor="">Enter Your Product Name</label>
-          <input
-            name="name"
-            label="Enter Your Product Name"
-            placeholder="Please enter your product Name"
-            ref={register({ required: true })}
-          />
-          {errors.name && <span style={error}>This field is required</span>}
-          <label htmlFor="">Upload Your Product Image</label>
-          <input name="image" type="file" onChange={handleImageUpload} />
-          <input
-            className={
-              loadImage ? 'btn btn-primary' : 'btn btn-primary disable'
-            }
-            style={{ padding: '10px 20px' }}
-            type="submit"
-          />
-        </form>
+      <div className="content">
+        <div className="form">
+          <form onSubmit={handleSubmit(onSubmit)} className="from">
+            <label htmlFor="">Enter Your Product Name</label>
+            <input
+              name="name"
+              placeholder="Please enter your product Name"
+              ref={register({ required: true })}
+            />
+            {errors.name && <span style={error}>This field is required</span>}
+            <label htmlFor="">Enter Your Product Weight</label>
+            <input
+              name="weight"
+              type="number"
+              placeholder="Please enter your product weight"
+              ref={register({ required: true })}
+            />
+            {errors.weight && <span style={error}>This field is required</span>}
+            <label htmlFor="">Enter Your Product Price</label>
+            <input
+              name="price"
+              type="number"
+              placeholder="Please enter your product price"
+              ref={register({ required: true })}
+            />
+            {errors.price && <span style={error}>This field is required</span>}
+            <label htmlFor="">Upload Your Product Image</label>
+            <input name="image" type="file" onChange={handleImageUpload} />
+            <input
+              className={
+                loadImage ? 'btn btn-primary' : 'btn btn-primary disable'
+              }
+              style={{ padding: '10px 20px' }}
+              type="submit"
+            />
+          </form>
+        </div>
       </div>
     </>
   );
