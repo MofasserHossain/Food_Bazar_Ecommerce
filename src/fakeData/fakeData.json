@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Fresh Chinigura Chal-1kg",
+    "pic": "Fresh_Chinigura_Chal_1_kg.jpg",
+    "price": 100
+  },
+  {
+    "name": "Rupchada Soyabeen Oil-5L",
+    "pic": "refuseShelter.png",
+    "price": 550
+  },
+  {
+    "name": "Fresh Tometo-1k",
+    "pic": "babySit.png",
+    "price": 145
+  },
+  {
+    "name": "Khati Sorishar Tel-250ml",
+    "pic": "animalShelter.png",
+    "price": 190
+  },
+  {
+    "name": "Rajshahi Roshun-1kg",
+    "pic": "birdHouse.png",
+    "price": 100
+  },
+  {
+    "name": "Deshi Peaj-1kg",
+    "pic": "cleanWater.png",
+    "price": 50
+  },
+  {
+    "name": "Alu-1kg",
+    "pic": "clearnPark.png",
+    "price": 30
+  },
+  {
+    "name": "Cauliflower-1kg",
+    "pic": "clothSwap.png",
+    "price": 40
+  }
+]

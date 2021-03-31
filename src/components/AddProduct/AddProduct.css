@@ -1,0 +1,12 @@
+.from input {
+  margin: 0 !important;
+  display: block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  width: 300px;
+}
+
+.disable {
+  background-color: rgb(131, 168, 235) !important;
+  pointer-events: none !important;
+}

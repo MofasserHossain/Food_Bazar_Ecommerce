@@ -1,0 +1,45 @@
+.logo a {
+  color: #000;
+  font-size: 28px;
+  font-weight: 500;
+}
+.menu__items {
+  display: flex;
+  align-items: center;
+}
+.menu__items a {
+  color: #000;
+}
+
+.userName {
+  color: green !important;
+  font-weight: 500 !important;
+}
+
+.button {
+  padding: 5px 35px !important;
+}
+
+.button a {
+  color: #fff;
+}
+.button a:hover {
+  color: #fff;
+}
+
+.button--admin {
+  background-color: #010316 !important;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.menu-links {
+  padding: 10px 15px !important;
+}
+
+.logo a:hover,
+.menu-links:hover {
+  color: #000;
+}

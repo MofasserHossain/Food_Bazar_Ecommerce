@@ -1,0 +1,22 @@
+.foodCard h5 {
+  font-size: 20px;
+}
+
+.foodCard {
+  background-color: #e8f1f2;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card__bottom {
+  align-items: center;
+}
+
+.card__bottom a {
+  color: #fff !important;
+}
+
+.card__bottom a:hover {
+  color: #fff !important ;
+  text-decoration: none;
+}
