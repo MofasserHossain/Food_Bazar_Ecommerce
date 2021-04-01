@@ -1,17 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import AddProduct from '../AddProduct/AddProduct';
+import ManageProduct from '../MangeProduct/ManageProduct';
 import './Admin.css';
 
 const Admin = () => {
+  const { path, url } = useRouteMatch();
   return (
     <>
       <div className="sidebar">
-        <Link to={'/manageProduct'}>Manage Product</Link>
-        <Link to={'/addProduct'}>Add Product</Link>
-        <Link to={'/editProduct'}>Edit Product</Link>
+        <Link to={`${url}`}>Manage Product</Link>
+        <Link to={`${url}/addProduct`}>Add Product</Link>
+        <Link to={`${url}/editProduct`}>Edit Product</Link>
       </div>
       <div className="content">
-        <h3>ManageMent</h3>
+        <Switch>
+          <Route exact path={path}>
+            <ManageProduct />
+          </Route>
+          <Route path={`${path}/addProduct`}>
+            <AddProduct />
+          </Route>
+        </Switch>
       </div>
     </>
   );

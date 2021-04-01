@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import {
   handleGoogleSignIn,
   initializeFirebaseFramework,
 } from './LoginManager';
+import './Login.css';
 
 const Login = () => {
   // . location
@@ -33,13 +36,17 @@ const Login = () => {
     });
   };
   return (
-    <div className="otherSignIn text-center">
-      <p>Login</p>
-      <button onClick={googleSignIn}>
-        <span className="google"></span>
-        Sign In With Google
-      </button>
-      <br />
+    <div className="formDiv">
+      <div className="otherSignIn text-center">
+        <p>Login</p>
+        <button onClick={googleSignIn}>
+          <span className="google">
+            <FontAwesomeIcon icon={faGoogle} />
+          </span>
+          Sign In With Google
+        </button>
+        <br />
+      </div>
     </div>
   );
 };

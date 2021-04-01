@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './ProductCard.css';
 const ProductCard = (props) => {
   const { _id, name, price, weight } = props.product;
   return (

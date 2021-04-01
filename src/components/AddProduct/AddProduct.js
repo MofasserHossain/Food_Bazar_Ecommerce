@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import './AddProduct.css';
@@ -9,6 +8,7 @@ const axios = require('axios');
 const AddProduct = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
+
   const [loadImage, setLoadImage] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
   const { register, handleSubmit, errors } = useForm();
@@ -20,10 +20,13 @@ const AddProduct = () => {
       imageUrl: imageUrl,
     };
     console.log(productData);
-    const url = `http://localhost:5000/addProduct`;
+    const url = `https://obscure-fortress-09030.herokuapp.com/addProduct`;
     axios
       .post(url, productData)
       .then((res) => {
+        if (res) {
+          history.push('/');
+        }
         console.log('response', res);
       })
       .catch((error) => {
@@ -52,49 +55,64 @@ const AddProduct = () => {
   };
   return (
     <>
-      <div className="sidebar">
-        <Link to={'/manageProduct'}>Manage Product</Link>
-        <Link to={'/addProduct'}>Add Product</Link>
-        <Link to={'/editProduct'}>Edit Product</Link>
+      <div className="form">
+        <form onSubmit={handleSubmit(onSubmit)} className="from">
+          <div className="form-top">
+            <div className="form_group">
+              <label htmlFor="">Product Name</label>
+              <input
+                name="name"
+                placeholder="Please enter your product Name"
+                ref={register({ required: true })}
+              />
+              {errors.name && <span style={error}>This field is required</span>}
+            </div>
+            <div className="form_group">
+              <label htmlFor="">Weight</label>
+              <input
+                name="weight"
+                type="number"
+                placeholder="Please enter your product weight"
+                ref={register({ required: true })}
+              />
+              {errors.weight && (
+                <span style={error}>This field is required</span>
+              )}
+            </div>
+          </div>
+          <div className="form-bottom">
+            <div className="form_group">
+              <label htmlFor="">Add Price</label>
+              <input
+                name="price"
+                type="number"
+                placeholder="Please enter your product price"
+                ref={register({ required: true })}
+              />
+              {errors.price && (
+                <span style={error}>This field is required</span>
+              )}
+            </div>
+            <div className="form_group">
+              <label htmlFor="">Add Photo</label>
+              <input
+                className="upload"
+                name="image"
+                type="file"
+                onChange={handleImageUpload}
+              />
+            </div>
+          </div>
+          <input
+            className={
+              loadImage ? 'btn btn-success' : 'btn btn-success disable'
+            }
+            style={{ padding: '10px 20px', margin: '10px' }}
+            type="submit"
+          />
+        </form>
       </div>
-      <div className="content">
-        <div className="form">
-          <form onSubmit={handleSubmit(onSubmit)} className="from">
-            <label htmlFor="">Enter Your Product Name</label>
-            <input
-              name="name"
-              placeholder="Please enter your product Name"
-              ref={register({ required: true })}
-            />
-            {errors.name && <span style={error}>This field is required</span>}
-            <label htmlFor="">Enter Your Product Weight</label>
-            <input
-              name="weight"
-              type="number"
-              placeholder="Please enter your product weight"
-              ref={register({ required: true })}
-            />
-            {errors.weight && <span style={error}>This field is required</span>}
-            <label htmlFor="">Enter Your Product Price</label>
-            <input
-              name="price"
-              type="number"
-              placeholder="Please enter your product price"
-              ref={register({ required: true })}
-            />
-            {errors.price && <span style={error}>This field is required</span>}
-            <label htmlFor="">Upload Your Product Image</label>
-            <input name="image" type="file" onChange={handleImageUpload} />
-            <input
-              className={
-                loadImage ? 'btn btn-primary' : 'btn btn-primary disable'
-              }
-              style={{ padding: '10px 20px' }}
-              type="submit"
-            />
-          </form>
-        </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

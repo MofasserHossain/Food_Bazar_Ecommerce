@@ -1,0 +1,39 @@
+.formDiv {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+}
+.otherSignIn {
+  padding: 20px;
+}
+
+.otherSignIn button {
+  border-radius: 50px;
+  border: 1px solid #000;
+  background-color: transparent;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+}
+
+.otherSignIn button span {
+  position: absolute;
+  top: 18%;
+  left: 3%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+}
+.otherSignIn button .fb {
+  background-color: blue;
+  color: #fff;
+}
+
+.otherSignIn button .google {
+  font-size: 18px;
+  color: #ff6e40;
+}

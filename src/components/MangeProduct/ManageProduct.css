@@ -1,8 +1,8 @@
 .product {
-  border-radius: 10px;
+  border-radius: 10px !important;
   padding: 10px 20px !important;
 }
 .color {
-  background-color: gray;
+  background-color: #727477;
   color: #fff;
 }

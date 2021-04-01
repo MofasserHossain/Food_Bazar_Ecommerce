@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Spinner, Table } from 'react-bootstrap';
 import { UserContext } from '../../App';
 import OrderCard from '../OrderCard/OrderCard';
 import './Order.css';
@@ -8,12 +8,16 @@ const Orders = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [orders, setOrders] = useState([]);
   const [orderProfile, setOrderProfile] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${loggedInUser.email}`)
+    fetch(
+      `https://obscure-fortress-09030.herokuapp.com/orders?email=${loggedInUser.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
         setOrderProfile(data[0]);
+        setLoading(true);
       });
   }, []);
   console.log(orders);
@@ -23,39 +27,47 @@ const Orders = () => {
     0
   );
   return (
-    <Container>
-      <h1 className="text-center pt-3">ORDER LIST</h1>
-      {orderProfile && (
-        <div className="userProfile d-flex py-3">
-          <div className="img">
-            <img src={orderProfile.photo} alt={orderProfile.displayName} />
-          </div>
-          <div className="card-content mt-2 ml-3">
-            <h4>{orderProfile.displayName}</h4>
-            <p>{orderProfile.email}</p>
-          </div>
+    <>
+      {loading ? (
+        <Container>
+          <h1 className="text-center pt-3">ORDER LIST</h1>
+          {orderProfile && (
+            <div className="userProfile d-flex py-3">
+              <div className="img">
+                <img src={orderProfile.photo} alt={orderProfile.displayName} />
+              </div>
+              <div className="card-content mt-2 ml-3">
+                <h4>{orderProfile.displayName}</h4>
+                <p>{orderProfile.email}</p>
+              </div>
+            </div>
+          )}
+          <Table hover className="mt-4">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <OrderCard key={order._id} order={order} />
+              ))}
+              <tr>
+                <td colSpan="3">Total</td>
+                <td>{totalPrice} $</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Container>
+      ) : (
+        <div className="spinner">
+          <Spinner animation="border" variant="success" />
         </div>
       )}
-      <Table hover className="mt-4">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Weight</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <OrderCard key={order._id} order={order} />
-          ))}
-          <tr>
-            <td colSpan="3">Total</td>
-            <td>{totalPrice} $</td>
-          </tr>
-        </tbody>
-      </Table>
-    </Container>
+    </>
   );
 };
 
