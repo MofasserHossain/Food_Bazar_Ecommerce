@@ -15,6 +15,7 @@
 
 .card__bottom {
   align-items: center;
+  padding: 15px 10px;
 }
 
 .card__bottom a {
@@ -30,4 +31,13 @@
   font-size: 25px;
   font-weight: 500;
   color: green;
+}
+
+@media (max-width: 567px) {
+  .foodCard img {
+    height: 300px;
+  }
+  .foodCard h5 {
+    font-size: 25px;
+  }
 }

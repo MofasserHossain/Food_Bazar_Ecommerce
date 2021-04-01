@@ -28,7 +28,7 @@ const CheckOut = () => {
     name: name,
     price: price,
     weight: weight,
-    image: imageUrl,
+    ProductImage: imageUrl,
   };
 
   const checkOut = () => {

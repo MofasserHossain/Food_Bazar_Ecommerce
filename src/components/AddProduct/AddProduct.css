@@ -62,3 +62,13 @@
   width: 50%;
   margin: 10px;
 }
+
+@media screen and (max-width: 700px) {
+  .form-top,
+  .form-bottom {
+    flex-direction: column;
+  }
+  .form_group {
+    width: 95%;
+  }
+}

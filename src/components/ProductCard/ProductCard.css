@@ -2,6 +2,7 @@
 .delete {
   color: #fff !important;
   padding: 5px 8px !important;
+  margin: 5px;
 }
 .edit {
   background-color: green !important;
@@ -9,5 +10,16 @@
 
 .delete {
   background-color: red !important;
-  margin-left: 5px;
+}
+
+tr td {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 400px) {
+  .edit,
+  .delete {
+    padding: 3px 5px !important;
+    font-size: 10px;
+  }
 }

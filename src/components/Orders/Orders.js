@@ -48,8 +48,8 @@ const Orders = () => {
               </div>
             </div>
           )}
-          <p></p>
-          <Table hover className="mt-4">
+          <h4 className="mt-md-4">Orders Information</h4>
+          <Table className="mt-4">
             <thead>
               <tr>
                 <th>Product Image</th>
@@ -64,7 +64,7 @@ const Orders = () => {
                 <OrderCard key={order._id} order={order} />
               ))}
               <tr>
-                <td colSpan="3">Total</td>
+                <td colSpan="4">Total</td>
                 <td>{totalPrice} $</td>
               </tr>
             </tbody>

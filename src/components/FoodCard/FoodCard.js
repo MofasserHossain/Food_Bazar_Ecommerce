@@ -6,7 +6,7 @@ import './FoodCard.css';
 const FoodCard = (props) => {
   const { _id, name, imageUrl, price, weight } = props.food;
   return (
-    <Col md={6} lg={3} className="my-3">
+    <Col sm={6} lg={3} className="my-3">
       <div className="foodCard">
         <img src={imageUrl} alt={name} />
         <h5 className="text-center mt-2">

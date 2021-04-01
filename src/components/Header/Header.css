@@ -1,3 +1,6 @@
+.menu {
+  box-shadow: 0 0 10px #d7dadd;
+}
 .logo a {
   color: #000;
   font-size: 28px;
@@ -9,6 +12,7 @@
 }
 .menu__items a {
   color: #000;
+  text-transform: uppercase;
 }
 
 .userName {

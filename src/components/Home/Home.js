@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
 import FoodCard from '../FoodCard/FoodCard';
-import './Home.css';
 const Home = () => {
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(false);

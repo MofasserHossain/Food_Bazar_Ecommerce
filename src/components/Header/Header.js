@@ -25,7 +25,7 @@ const Header = () => {
             <Link className="menu-links" to="/admin">
               Admin
             </Link>
-            <Link className="menu-links" to="/details">
+            <Link className="menu-links" to="/">
               Details
             </Link>
             {loggedInUser.email ? (

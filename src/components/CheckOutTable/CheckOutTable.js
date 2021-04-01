@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap';
 const CheckOutTable = (props) => {
   const { name, price } = props.checkOut;
   return (
-    <Table hover>
+    <Table>
       <thead>
         <tr>
           <th>Name</th>

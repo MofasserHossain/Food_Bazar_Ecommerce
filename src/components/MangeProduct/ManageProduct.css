@@ -7,3 +7,12 @@
   background-color: #727477;
   color: #fff;
 }
+
+.product_table .table,
+tr,
+th,
+td,
+thead,
+tbody {
+  border: none !important;
+}
