@@ -21,10 +21,20 @@ const CheckOut = () => {
         setLoading(true);
       });
   }, []);
+
+  const { name, price, weight, imageUrl } = checkoutProduct;
+  // . this is for not inserting product id and avoid error
+  const newCheckoutProduct = {
+    name: name,
+    price: price,
+    weight: weight,
+    image: imageUrl,
+  };
+
   const checkOut = () => {
     const productDetails = {
       ...loggedInUser,
-      ...checkoutProduct,
+      ...newCheckoutProduct,
       date: new Date(),
     };
     console.log('product', productDetails);

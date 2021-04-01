@@ -48,9 +48,11 @@ const Orders = () => {
               </div>
             </div>
           )}
+          <p></p>
           <Table hover className="mt-4">
             <thead>
               <tr>
+                <th>Product Image</th>
                 <th>Name</th>
                 <th>Weight</th>
                 <th>Quantity</th>
