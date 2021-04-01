@@ -8,6 +8,11 @@
   padding: 10px;
 }
 
+.foodCard img {
+  height: 220px;
+  border-radius: 10px;
+}
+
 .card__bottom {
   align-items: center;
 }
@@ -19,4 +24,10 @@
 .card__bottom a:hover {
   color: #fff !important ;
   text-decoration: none;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: 500;
+  color: green;
 }

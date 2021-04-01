@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Container, Spinner, Table } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
+import CheckOutTable from '../CheckOutTable/CheckOutTable';
 import './CheckOut.css';
 const axios = require('axios');
 
@@ -20,8 +21,6 @@ const CheckOut = () => {
         setLoading(true);
       });
   }, []);
-
-  const { name, price } = checkoutProduct;
   const checkOut = () => {
     const productDetails = {
       ...loggedInUser,
@@ -48,26 +47,7 @@ const CheckOut = () => {
           <div className="checkoutPage">
             <h3>CheckOut</h3>
             <div className="checkout__table">
-              <Table hover>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{name}</td>
-                    <td>1</td>
-                    <td>{price}</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">Total</td>
-                    <td>{price} $</td>
-                  </tr>
-                </tbody>
-              </Table>
+              <CheckOutTable checkOut={checkoutProduct} />
               <button
                 className="btn btn-success float-right button"
                 onClick={checkOut}

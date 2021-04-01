@@ -14,7 +14,7 @@ const FoodCard = (props) => {
           {weight > 5 ? 'g' : 'Kg'}
         </h5>
         <div className="d-flex justify-content-between card__bottom">
-          <span>{price} $</span>
+          <span className="price">{price}$</span>
           <button className="btn btn-success">
             <Link to={`/checkout/${_id}`}>Buy Now</Link>
           </button>

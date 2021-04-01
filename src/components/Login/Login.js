@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import {
   handleGoogleSignIn,
   initializeFirebaseFramework,
@@ -27,7 +27,7 @@ const Login = () => {
     success: false,
     updateUser: false,
   });
-  console.log('log', loggedInUser);
+  // console.log('log', loggedInUser);
   const googleSignIn = () => {
     handleGoogleSignIn().then((res) => {
       setUser(res);

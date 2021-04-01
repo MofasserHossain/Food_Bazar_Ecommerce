@@ -17,21 +17,21 @@ const ManageProduct = () => {
         setLoading(true);
       });
   }, [reloadData]);
-  console.log(products);
+  // console.log(products);
   const handleDeleteProduct = (productKey) => {
-    console.log(productKey);
+    // console.log(productKey);
     fetch(`https://obscure-fortress-09030.herokuapp.com/delete/${productKey}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setLoading(true);
         if (data) {
           setReloadData({
             loadData: true,
           });
         }
-        setLoading(true);
       });
   };
   return (

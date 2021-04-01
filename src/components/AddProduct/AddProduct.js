@@ -1,14 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import './AddProduct.css';
-import { UserContext } from '../../App';
+// import { UserContext } from '../../App';
 const axios = require('axios');
 
 const AddProduct = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
-
   const [loadImage, setLoadImage] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
   const { register, handleSubmit, errors } = useForm();
@@ -27,7 +26,7 @@ const AddProduct = () => {
         if (res) {
           history.push('/');
         }
-        console.log('response', res);
+        // console.log('response', res);
       })
       .catch((error) => {
         console.log(error);
@@ -55,6 +54,7 @@ const AddProduct = () => {
   };
   return (
     <>
+      <h3 className="mx-4 py-3">Add Product</h3>
       <div className="form">
         <form onSubmit={handleSubmit(onSubmit)} className="from">
           <div className="form-top">
@@ -108,7 +108,7 @@ const AddProduct = () => {
               loadImage ? 'btn btn-success' : 'btn btn-success disable'
             }
             style={{ padding: '10px 20px', margin: '10px' }}
-            type="submit"
+            type="Submit"
           />
         </form>
       </div>

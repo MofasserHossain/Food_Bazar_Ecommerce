@@ -9,6 +9,9 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [orderProfile, setOrderProfile] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [reloadData, setReloadData] = useState({
+    loadData: false,
+  });
   useEffect(() => {
     fetch(
       `https://obscure-fortress-09030.herokuapp.com/orders?email=${loggedInUser.email}`
@@ -18,9 +21,12 @@ const Orders = () => {
         setOrders(data);
         setOrderProfile(data[0]);
         setLoading(true);
+        setReloadData({
+          loadData: true,
+        });
       });
-  }, []);
-  console.log(orders);
+  }, [reloadData]);
+  // console.log(orders);
   // const { displayName, email, photo } = orderProfile;
   const totalPrice = orders.reduce(
     (total, product) => total + Number(product.price),

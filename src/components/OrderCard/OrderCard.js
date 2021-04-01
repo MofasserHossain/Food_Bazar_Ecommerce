@@ -3,13 +3,13 @@ import './OrderCard.css';
 const OrderCard = ({ order }) => {
   const { name, price, weight } = order;
   return (
-    <tr>
+    <tr className="orderData">
       <td>{name}</td>
       <td>
         {weight} {weight > 5 ? 'g' : 'Kg'}
       </td>
       <td>1</td>
-      <td>{price} $</td>
+      <td>{price}$</td>
     </tr>
   );
 };
