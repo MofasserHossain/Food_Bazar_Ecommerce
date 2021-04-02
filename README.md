@@ -1,4 +1,4 @@
-# Food Bazar
+# Project Name : Food Bazar
 
 Here is the live [link : Food Bazar](https://food-bazar-project.web.app/).
 
