@@ -19,7 +19,7 @@ const CheckOutTable = (props) => {
           <td>{price} $</td>
         </tr>
         <tr>
-          <td colSpan="2">Total</td>
+          <td colSpan="2">Total Price</td>
           <td>{price} $</td>
         </tr>
       </tbody>

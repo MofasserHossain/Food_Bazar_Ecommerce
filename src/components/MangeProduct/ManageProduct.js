@@ -25,7 +25,7 @@ const ManageProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setLoading(true);
         if (data) {
           setReloadData({

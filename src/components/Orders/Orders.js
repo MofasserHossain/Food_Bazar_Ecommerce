@@ -26,6 +26,22 @@ const Orders = () => {
         });
       });
   }, [reloadData]);
+
+  const handleDeleteOrder = (id) => {
+    fetch(`https://obscure-fortress-09030.herokuapp.com/deleteOrder/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setLoading(true);
+        if (data) {
+          setReloadData({
+            loadData: true,
+          });
+        }
+      });
+  };
   // console.log(orders);
   // const { displayName, email, photo } = orderProfile;
   const totalPrice = orders.reduce(
@@ -36,7 +52,7 @@ const Orders = () => {
     <>
       {loading ? (
         <Container>
-          <h1 className="text-center pt-3">ORDER LIST</h1>
+          <h1 className="text-center py-3 mt-4">THANKS FOR ORDERING</h1>
           {orderProfile && (
             <div className="userProfile d-flex py-3">
               <div className="img">
@@ -44,12 +60,12 @@ const Orders = () => {
               </div>
               <div className="card-content mt-2 ml-3">
                 <h4>{orderProfile.displayName}</h4>
-                <p>{orderProfile.email}</p>
+                <p>Email : {orderProfile.email}</p>
               </div>
             </div>
           )}
           <h4 className="mt-md-4">Orders Information</h4>
-          <Table responsive className="mt-4">
+          <Table responsive className="mt-4 mb-5">
             <thead>
               <tr>
                 <th>Product Image</th>
@@ -57,14 +73,19 @@ const Orders = () => {
                 <th>Weight</th>
                 <th>Quantity</th>
                 <th>Price</th>
+                <th>Delete Order</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
-                <OrderCard key={order._id} order={order} />
+                <OrderCard
+                  key={order._id}
+                  order={order}
+                  handleDeleteOrder={handleDeleteOrder}
+                />
               ))}
               <tr>
-                <td colSpan="4">Total</td>
+                <td colSpan="4">Total Price</td>
                 <td>{totalPrice} $</td>
               </tr>
             </tbody>

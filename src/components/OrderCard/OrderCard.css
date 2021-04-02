@@ -1,3 +1,7 @@
 .orderData td {
   font-weight: 400;
 }
+
+.delete {
+  background-color: red !important;
+}

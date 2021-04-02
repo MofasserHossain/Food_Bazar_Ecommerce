@@ -50,7 +50,7 @@ const Login = () => {
   return (
     <div className="formDiv">
       <div className="otherSignIn text-center">
-        <h3>Please Login For your Validation</h3>
+        <h3>Please Login For Validation</h3>
         {!user.success && <p style={{ color: 'red' }}>{user.error}</p>}
         <button onClick={googleSignIn}>
           <span className="google">

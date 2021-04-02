@@ -18,7 +18,7 @@ const AddProduct = () => {
       weight: data.weight,
       imageUrl: imageUrl,
     };
-    console.log(productData);
+    // console.log(productData);
     const url = `https://obscure-fortress-09030.herokuapp.com/addProduct`;
     axios
       .post(url, productData)
@@ -37,14 +37,14 @@ const AddProduct = () => {
     display: 'block',
   };
   const handleImageUpload = (e) => {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     const imageData = new FormData();
     imageData.set('key', ' 65fc8ae8a7308f953fbf7a8227f54858');
     imageData.append('image', e.target.files[0]);
     axios
       .post('https://api.imgbb.com/1/upload', imageData)
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
         setImageUrl(response.data.data.display_url);
         setLoadImage(true);
       })

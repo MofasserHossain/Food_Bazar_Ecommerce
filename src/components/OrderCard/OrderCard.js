@@ -1,7 +1,9 @@
 import React from 'react';
 import './OrderCard.css';
-const OrderCard = ({ order }) => {
-  const { name, ProductImage, price, weight } = order;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+const OrderCard = (props) => {
+  const { _id, name, ProductImage, price, weight } = props.order;
   return (
     <tr className="orderData">
       <td>
@@ -17,6 +19,14 @@ const OrderCard = ({ order }) => {
       </td>
       <td>1</td>
       <td>{price}$</td>
+      <td>
+        <button
+          className="btn delete"
+          onClick={() => props.handleDeleteOrder(_id)}
+        >
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
+      </td>
     </tr>
   );
 };

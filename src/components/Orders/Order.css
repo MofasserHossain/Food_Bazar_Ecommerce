@@ -4,6 +4,9 @@
   border-radius: 50% !important;
   overflow: hidden !important;
 }
+.userProfile {
+  font-weight: 500;
+}
 
 @media (max-width: 550px) {
   .userProfile {
