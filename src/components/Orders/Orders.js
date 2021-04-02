@@ -7,7 +7,6 @@ import './Order.css';
 const Orders = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [orders, setOrders] = useState([]);
-  const [orderProfile, setOrderProfile] = useState([]);
   const [loading, setLoading] = useState(false);
   const [reloadData, setReloadData] = useState({
     loadData: false,
@@ -19,7 +18,6 @@ const Orders = () => {
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
-        setOrderProfile(data[0]);
         setLoading(true);
         setReloadData({
           loadData: true,
@@ -43,7 +41,7 @@ const Orders = () => {
       });
   };
   // console.log(orders);
-  // const { displayName, email, photo } = orderProfile;
+  const { displayName, email, photo } = loggedInUser;
   const totalPrice = orders.reduce(
     (total, product) => total + Number(product.price),
     0
@@ -53,14 +51,14 @@ const Orders = () => {
       {loading ? (
         <Container>
           <h1 className="text-center py-3 mt-4">THANKS FOR ORDERING</h1>
-          {orderProfile && (
+          {loggedInUser.email && (
             <div className="userProfile d-flex py-3">
               <div className="img">
-                <img src={orderProfile.photo} alt={orderProfile.displayName} />
+                <img src={photo} alt={displayName} />
               </div>
               <div className="card-content mt-2 ml-3">
-                <h4>{orderProfile.displayName}</h4>
-                <p>Email : {orderProfile.email}</p>
+                <h4>{displayName}</h4>
+                <p>Email : {email}</p>
               </div>
             </div>
           )}
@@ -71,6 +69,7 @@ const Orders = () => {
                 <th>Product Image</th>
                 <th>Name</th>
                 <th>Weight</th>
+                <th>Date</th>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Delete Order</th>

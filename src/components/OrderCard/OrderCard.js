@@ -3,7 +3,8 @@ import './OrderCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const OrderCard = (props) => {
-  const { _id, name, ProductImage, price, weight } = props.order;
+  const { _id, name, ProductImage, price, weight, date } = props.order;
+  // console.log(props.order);
   return (
     <tr className="orderData">
       <td>
@@ -17,6 +18,7 @@ const OrderCard = (props) => {
       <td>
         {weight} {weight > 10 ? 'g' : 'Kg'}
       </td>
+      <td>{new Date(date).toDateString('dd/MM/yyyy')}</td>
       <td>1</td>
       <td>{price}$</td>
       <td>
