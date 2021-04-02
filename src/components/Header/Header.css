@@ -54,3 +54,10 @@
 .menu-links:hover {
   color: #000;
 }
+
+@media (max-width: 500px) {
+  .logo a {
+    font-size: 20px;
+    font-family: 700;
+  }
+}

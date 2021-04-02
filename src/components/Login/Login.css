@@ -38,3 +38,8 @@
   font-size: 20px;
   color: #000;
 }
+@media (max-width: 500px) {
+  .otherSignIn > h3 {
+    font-size: 24px;
+  }
+}

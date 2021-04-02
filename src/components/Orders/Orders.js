@@ -84,7 +84,7 @@ const Orders = () => {
                 />
               ))}
               <tr>
-                <td colSpan="4">Total Price</td>
+                <td colSpan="5">Total Price</td>
                 <td>{totalPrice} $</td>
               </tr>
             </tbody>

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log(loggedInUser);
   return (
     <Navbar bg="light" expand="lg" className="menu fixed-top">
       <Container>
@@ -33,7 +34,10 @@ const Header = () => {
             {loggedInUser.email ? (
               <>
                 <span className="user">
-                  <img src={loggedInUser.photo} alt="" />
+                  <img
+                    src={loggedInUser.photo}
+                    alt={loggedInUser.displayName}
+                  />
                 </span>
                 <Button title="Log Out" className="btn logOut" href="/">
                   <FontAwesomeIcon icon={faSignOutAlt} />
