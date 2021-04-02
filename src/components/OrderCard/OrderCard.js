@@ -13,7 +13,7 @@ const OrderCard = ({ order }) => {
       </td>
       <td>{name}</td>
       <td>
-        {weight} {weight > 5 ? 'g' : 'Kg'}
+        {weight} {weight > 10 ? 'g' : 'Kg'}
       </td>
       <td>1</td>
       <td>{price}$</td>

@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import {
+  handleGithubSignIn,
   handleGoogleSignIn,
   initializeFirebaseFramework,
 } from './LoginManager';
@@ -35,17 +36,36 @@ const Login = () => {
       history.replace(from);
     });
   };
+
+  const githubSignIn = () => {
+    handleGithubSignIn().then((res) => {
+      // console.log(res);
+      setUser(res);
+      setLoggedInUser(res);
+      if (res.success) {
+        history.replace(from);
+      }
+    });
+  };
   return (
     <div className="formDiv">
       <div className="otherSignIn text-center">
-        <p>Login</p>
+        <h3>Please Login For your Validation</h3>
+        {!user.success && <p style={{ color: 'red' }}>{user.error}</p>}
         <button onClick={googleSignIn}>
           <span className="google">
             <FontAwesomeIcon icon={faGoogle} />
           </span>
           Sign In With Google
         </button>
+
         <br />
+        <button onClick={githubSignIn}>
+          <span className="github">
+            <FontAwesomeIcon icon={faGithub} />
+          </span>
+          Sign In With Github
+        </button>
       </div>
     </div>
   );

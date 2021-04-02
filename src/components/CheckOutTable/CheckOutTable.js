@@ -16,11 +16,11 @@ const CheckOutTable = (props) => {
         <tr className="orderData">
           <td>{name}</td>
           <td>1</td>
-          <td>{price}</td>
+          <td>{price} $</td>
         </tr>
         <tr>
           <td colSpan="2">Total</td>
-          <td>{price}$</td>
+          <td>{price} $</td>
         </tr>
       </tbody>
     </Table>

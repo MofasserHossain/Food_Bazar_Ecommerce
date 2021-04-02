@@ -49,7 +49,7 @@ const Orders = () => {
             </div>
           )}
           <h4 className="mt-md-4">Orders Information</h4>
-          <Table className="mt-4">
+          <Table responsive className="mt-4">
             <thead>
               <tr>
                 <th>Product Image</th>

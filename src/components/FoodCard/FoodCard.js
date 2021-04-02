@@ -11,7 +11,7 @@ const FoodCard = (props) => {
         <img src={imageUrl} alt={name} />
         <h5 className="text-center mt-2">
           {name} - {weight}
-          {weight > 5 ? 'g' : 'Kg'}
+          {weight > 10 ? 'g' : 'Kg'}
         </h5>
         <div className="d-flex justify-content-between card__bottom">
           <span className="price">{price}$</span>

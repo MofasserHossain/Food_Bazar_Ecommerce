@@ -39,7 +39,7 @@ const ManageProduct = () => {
       {loading ? (
         <>
           <h3 className="mx-4 py-3">Manage Product</h3>
-          <Table className="product_table">
+          <Table responsive className="product_table">
             <thead className="product color">
               <tr>
                 <th>Name</th>
