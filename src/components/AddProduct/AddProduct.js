@@ -10,7 +10,7 @@ const AddProduct = () => {
   const history = useHistory();
   const [loadImage, setLoadImage] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
     const productData = {
       name: data.name,
